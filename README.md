@@ -4,7 +4,8 @@ Official Pytorch implementation of FSR.
 [Feature Separation and Recalibration for Adversarial Robustness](https://arxiv.org/abs/2303.13846). \
 [Woo Jae Kim](https://wkim97.github.io/), [Yoonki Cho](https://sgvr.kaist.ac.kr/member/), [Junsik Jung](https://sgvr.kaist.ac.kr/member/), [Sung-Eui Yoon](https://sgvr.kaist.ac.kr/~sungeui/) \
 Korea Advanced Institute of Science and Technology (KAIST) \
-in CVPR 2023 (Highlights Paper)
+in CVPR 2023 (Highlights Paper) \
+[Project webpage](https://sgvr.kaist.ac.kr/~wjkim/FSR/), [Video](https://www.youtube.com/watch?v=PcnGZ0JYyNQ), [Poster](https://sgvr.kaist.ac.kr/wp-content/uploads/2023/06/FSR_CVPR2023_poster.png)
 
 ## Updates
 [05/2023] Code is released.
