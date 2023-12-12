@@ -48,7 +48,7 @@ class PGD():
 
         with torch.enable_grad():
             for _iter in range(self.max_iters):
-                outputs, outputs_r, outputs_nr, outputs_rec = self.model(x, is_eval=True)
+                outputs, _, _, _ = self.model(x, is_eval=True)
                 cls_loss = nn.CrossEntropyLoss()(outputs, labels)
 
                 loss = cls_loss

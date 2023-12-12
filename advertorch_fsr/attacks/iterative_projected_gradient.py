@@ -33,7 +33,7 @@ def perturb_iterative(xvar, yvar, predict, nb_iter, eps, eps_iter, loss_fn,
 
     delta.requires_grad_()
     for ii in range(nb_iter):
-        outputs, outputs_r, outputs_nr, outputs_rec = predict(xvar + delta, is_eval=True)
+        outputs, _, _, _ = predict(xvar + delta, is_eval=True)
         loss = loss_fn(outputs, yvar)
 
         if minimize:

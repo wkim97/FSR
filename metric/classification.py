@@ -33,9 +33,9 @@ def attack_mini_batches(predict, adversary, loader, device="cuda", num_batch=Non
         data, label = data.to(device), label.to(device)
         adv = adversary.perturb(data, label)
         
-        adv_logits, adv_logits_r, adv_logits_nr, adv_logits_rec = predict(adv, is_eval=True)
+        adv_logits, _, _, _ = predict(adv, is_eval=True)
         advpred = predict_from_logits(adv_logits)
-        nat_logits, nat_logits_r, nat_logits_nr, nat_logits_rec = predict(data, is_eval=True)
+        nat_logits, _, _, _ = predict(data, is_eval=True)
         pred = predict_from_logits(nat_logits)
 
         lst_label.append(label)

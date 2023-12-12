@@ -29,7 +29,7 @@ class GradientSignAttack(Attack, LabelMixin):
 
         x, y = self._verify_and_process_inputs(x, y)
         xadv = x.requires_grad_()
-        outputs, outputs_r, outputs_nr, outputs_rec = self.predict(xadv, is_eval=True)
+        outputs, _, _, _ = self.predict(xadv, is_eval=True)
 
         loss = self.loss_fn(outputs, y)
         if self.targeted:
@@ -62,7 +62,7 @@ class GradientAttack(Attack, LabelMixin):
     def perturb(self, x, y=None):
         x, y = self._verify_and_process_inputs(x, y)
         xadv = x.requires_grad_()
-        outputs, outputs_r, outputs_nr, outputs_rec = self.predict(xadv, is_eval=True)
+        outputs, _, _, _ = self.predict(xadv, is_eval=True)
 
         loss = self.loss_fn(outputs, y)
         if self.targeted:

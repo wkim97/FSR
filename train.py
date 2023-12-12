@@ -40,8 +40,6 @@ parser.add_argument('--tau', type=float, default=0.1, help='tau for Gumbel softm
 parser.add_argument('--device', type=int, help='device id')
 args = parser.parse_args()
 
-print(args)
-
 device = 'cuda:{}'.format(args.device) if torch.cuda.is_available() else 'cpu'
 start_epoch = 1
 
@@ -119,7 +117,6 @@ attack = PGD(net, args.eps/255.0, args.alpha * (args.eps/255.0), min_val=0, max_
 
 
 def adjust_learning_rate(optimizer, epoch):
-    """decrease the learning rate"""
     lr = args.lr
     if epoch >= 75:
         lr = args.lr * 0.1
@@ -129,7 +126,6 @@ def adjust_learning_rate(optimizer, epoch):
         param_group['lr'] = lr
 
 
-# Training
 def train(epoch):
     print('\nEpoch: %d' % epoch)
     net.train()
@@ -209,8 +205,8 @@ def test(epoch):
             adv_inputs = attack.perturb(inputs, targets, False)
             net.eval()
 
-            ori_outputs, ori_r_outputs, ori_nr_outputs, ori_rec_outputs = net(inputs, is_eval=True)
-            adv_outputs, adv_r_outputs, adv_nr_outputs, adv_rec_outputs = net(adv_inputs, is_eval=True)
+            ori_outputs, _, _, _ = net(inputs, is_eval=True)
+            adv_outputs, _, _, _ = net(adv_inputs, is_eval=True)
 
             ori_loss = criterion(ori_outputs, targets)
             ori_test_loss += ori_loss.item()

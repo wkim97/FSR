@@ -26,7 +26,7 @@ class Attack(object):
 class LabelMixin(object):
     def _get_predicted_label(self, x):
         with torch.no_grad():
-            outputs, outputs_r, outputs_nr, outputs_rec = self.predict(x, is_eval=True)
+            outputs, _, _, _ = self.predict(x, is_eval=True)
         _, y = torch.max(outputs, dim=1)
         return y
 

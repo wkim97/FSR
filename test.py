@@ -17,9 +17,6 @@ import torchvision.transforms as transforms
 from models.BaseModel import BaseModelDNN
 
 
-os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
-
-
 def boolean_string(s):
     if s not in {'False', 'True'}:
         raise ValueError('Not a valid boolean string')
